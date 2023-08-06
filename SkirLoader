@@ -1,1 +1,8 @@
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Link = game:HttpGet("https://raw.githubusercontent.com/Doudoxz/Loaderr/tree/main/SkirHub/"..game.PlaceId..".lua")
 
+if Link then    
+    loadstring(Link)()
+else 
+LocalPlayer:Kick("UnSupported Game")
+end

@@ -1043,6 +1043,7 @@ function autoeightEgg()
 end
 
 function LoadSkir()
+    wait(2)
     local Window = OrionLib:MakeWindow({Name = "SkirHub", HidePremium = false, SaveConfig = false, ConfigFolder = "OrionTest",IntroEnabled = true,IntroText = "by 4RASHll & saintfulls"})
     local HomeTab = Window:MakeTab({
         Name = "Home",
@@ -1257,7 +1258,7 @@ function ReadKey()
             Discord = {
                Enabled = true,
                Invite = "wy6xvSWNnb", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
-               RememberJoins = false -- Set this to false to make them join the discord every time they load it up
+               RememberJoins = true -- Set this to false to make them join the discord every time they load it up
             },
             KeySystem = false, -- Set this to true to use our key system
             KeySettings = {
@@ -1284,9 +1285,31 @@ function ReadKey()
             Callback = function()
                 if getgenv().InputKey == loadedKey then
                     writefile("/SkirHub/Key.skir", loadedKey)
+                    Rayfield:Notify({
+                        Title = "Skir Hub Notification",
+                        Content = "Loading SkirHub",
+                        Duration = 6.5,
+                        Image = 4483362458,
+                        Actions = { -- Notification Buttons
+                           Ignore = {
+                              Name = "Okay!",
+                              Callback = function()
+                              print("The user tapped Okay!")
+                           end
+                        },
+                     },
+                     })
                     LoadSkir()
                     Rayfield:Destroy()
                 end
+            end,
+         })
+         local Button = Tab:CreateButton({
+            Name = "Join Discord",
+            Callback = function()
+                local link = "https://discord.gg/wy6xvSWNnb"
+                toclipboard(link)
+                
             end,
          })
     end
@@ -1305,7 +1328,6 @@ else
     writefile("/SkirHub/Key.skir","")
     ReadKey()
 end
-
 
 
 

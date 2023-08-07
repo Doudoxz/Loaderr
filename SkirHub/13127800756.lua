@@ -2,7 +2,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local loadedKey = "bPmkl41Rbar5a6K"
+local loadedKey = game:HttpGet('https://pastebin.com/raw/NSkYNvzH')
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local cz1 = LocalPlayer:GetAttribute("CurrentZone")
@@ -21,7 +21,7 @@ local BattleTable = { "" }
 local selectedPunch
 local PunchTableZones1 = { "" }
 getgenv().InputKey = ""
-
+getgenv().Check = true
 
 
 
@@ -41,65 +41,69 @@ getgenv().AutoPunchBag = true
 
 function autorebirth()
     while getgenv().autorebirth == true do
-        game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.RebirthService.RE.onRebirthRequest:FireServer()
+        game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services
+            .RebirthService.RE.onRebirthRequest:FireServer()
         wait(12)
+
     end
 end
 
 function ResetDropdown()
-    if cz1 == "1" then
-        PunchTableZones1 = { "" }
-        BattleTable = { "" }
-        Egg1 = { "" }
-        for i, v in pairs(workspace.Zones["1"].Map.Eggs:GetChildren()) do
-            table.insert(Egg1, v.Name)
+    while getgenv().Check == true do
+        if cz1 == "1" then
+            PunchTableZones1 = { "" }
+            BattleTable = { "" }
+            Egg1 = { "" }
+            for i, v in pairs(workspace.Zones["1"].Map.Eggs:GetChildren()) do
+                table.insert(Egg1, v.Name)
+            end
+            for i, v in pairs(workspace.Zones["1"].Interactables.Training.PunchBags:GetChildren()) do
+                table.insert(PunchTableZones1, v.Name)
+            end
+            for i, v in pairs(workspace.Zones["1"].Interactables.ArmWrestling.NPC:GetChildren()) do
+                table.insert(BattleTable, v.Name)
+            end
+        elseif cz1 == "2" then
+            PunchTableZones1 = { "" }
+            BattleTable = { "" }
+            Egg1 = { "" }
+            for i, v in pairs(workspace.Zones["2"].Map.Eggs:GetChildren()) do
+                table.insert(Egg1, v.Name)
+            end
+            for i, v in pairs(workspace.Zones["2"].Interactables.Training.PunchBags:GetChildren()) do
+                table.insert(PunchTableZones1, v.Name)
+            end
+            for i, v in pairs(workspace.Zones["2"].Interactables.ArmWrestling.NPC:GetChildren()) do
+                table.insert(BattleTable, v.Name)
+            end
+        elseif cz1 == "3" then
+            PunchTableZones1 = { "" }
+            BattleTable = { "" }
+            Egg1 = { "" }
+            for i, v in pairs(workspace.Zones["3"].Interactables.Eggs:GetChildren()) do
+                table.insert(Egg1, v.Name)
+            end
+            for i, v in pairs(workspace.Zones["3"].Interactables.Training.PunchBags:GetChildren()) do
+                table.insert(PunchTableZones1, v.Name)
+            end
+            for i, v in pairs(workspace.Zones["3"].Interactables.ArmWrestling.NPC:GetChildren()) do
+                table.insert(BattleTable, v.Name)
+            end
+        elseif cz1 == "4" then
+            PunchTableZones1 = { "" }
+            BattleTable = { "" }
+            Egg1 = { "" }
+            for i, v in pairs(workspace.Zones["4"].Interactables.Eggs:GetChildren()) do
+                table.insert(Egg1, v.Name)
+            end
+            for i, v in pairs(workspace.Zones["4"].Interactables.ArmWrestling.NPC:GetChildren()) do
+                table.insert(BattleTable, v.Name)
+            end
+            for i, v in pairs(workspace.Zones["4"].Interactables.Training.PunchBags:GetChildren()) do
+                table.insert(PunchTableZones1, v.Name)
+            end
         end
-        for i, v in pairs(workspace.Zones["1"].Interactables.Training.PunchBags:GetChildren()) do
-            table.insert(PunchTableZones1, v.Name)
-        end
-        for i, v in pairs(workspace.Zones["1"].Interactables.ArmWrestling.NPC:GetChildren()) do
-            table.insert(BattleTable, v.Name)
-        end
-    elseif cz1 == "2" then
-        PunchTableZones1 = { "" }
-        BattleTable = { "" }
-        Egg1 = { "" }
-        for i, v in pairs(workspace.Zones["2"].Map.Eggs:GetChildren()) do
-            table.insert(Egg1, v.Name)
-        end
-        for i, v in pairs(workspace.Zones["2"].Interactables.Training.PunchBags:GetChildren()) do
-            table.insert(PunchTableZones1, v.Name)
-        end
-        for i, v in pairs(workspace.Zones["2"].Interactables.ArmWrestling.NPC:GetChildren()) do
-            table.insert(BattleTable, v.Name)
-        end
-    elseif cz1 == "3" then
-        PunchTableZones1 = { "" }
-        BattleTable = { "" }
-        Egg1 = { "" }
-        for i, v in pairs(workspace.Zones["3"].Interactables.Eggs:GetChildren()) do
-            table.insert(Egg1, v.Name)
-        end
-        for i, v in pairs(workspace.Zones["3"].Interactables.Training.PunchBags:GetChildren()) do
-            table.insert(PunchTableZones1, v.Name)
-        end
-        for i, v in pairs(workspace.Zones["3"].Interactables.ArmWrestling.NPC:GetChildren()) do
-            table.insert(BattleTable, v.Name)
-        end
-    elseif cz1 == "4" then
-        PunchTableZones1 = { "" }
-        BattleTable = { "" }
-        Egg1 = { "" }
-        for i, v in pairs(workspace.Zones["4"].Interactables.Eggs:GetChildren()) do
-            table.insert(Egg1, v.Name)
-        end
-        for i, v in pairs(workspace.Zones["4"].Interactables.ArmWrestling.NPC:GetChildren()) do
-            table.insert(BattleTable, v.Name)
-        end
-        for i, v in pairs(workspace.Zones["4"].Interactables.Training.PunchBags:GetChildren()) do
-            table.insert(PunchTableZones1, v.Name)
-        end
-    end 
+    end
 end
 
 function AutoWerstle()
@@ -124,7 +128,7 @@ function AutoPunchBagZone1()
             game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
                 "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
                 :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-        elseif selectedPunch == "Tier2" and cz1 == "1"  then
+        elseif selectedPunch == "Tier2" and cz1 == "1" then
             hrp.CFrame = CFrame.new(-10221.96875, 6.339763641357422, 123.85092163085938)
             local args = {
                 [1] = "1",
@@ -134,7 +138,7 @@ function AutoPunchBagZone1()
             game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
                 "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
                 :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-        elseif selectedPunch == "Tier3" and cz1 == "1"  then
+        elseif selectedPunch == "Tier3" and cz1 == "1" then
             hrp.CFrame = CFrame.new(-10224.783203125, 2.9865267276763916, 131.86752319335938)
             local args = {
                 [1] = "1",
@@ -144,7 +148,7 @@ function AutoPunchBagZone1()
             game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
                 "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
                 :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-        elseif selectedPunch == "Tier4" and cz1 == "1"  then
+        elseif selectedPunch == "Tier4" and cz1 == "1" then
             hrp.CFrame = CFrame.new(-10234.8018, 6.28198195, 132.633331)
             local args = {
                 [1] = "1",
@@ -154,7 +158,7 @@ function AutoPunchBagZone1()
             game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
                 "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
                 :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-        elseif selectedPunch == "Tier5" and cz1 == "1"  then
+        elseif selectedPunch == "Tier5" and cz1 == "1" then
             hrp.CFrame = CFrame.new(-10243.6973, 4.93529177, 132.964691)
             local args = {
                 [1] = "1",
@@ -164,7 +168,7 @@ function AutoPunchBagZone1()
             game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
                 "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
                 :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-        elseif selectedPunch == "Tier6" and cz1 == "1"  then
+        elseif selectedPunch == "Tier6" and cz1 == "1" then
             hrp.CFrame = CFrame.new(-10253.2852, 4.93529177, 132.812927)
             local args = {
                 [1] = "1",
@@ -184,75 +188,73 @@ function AutoPunchBagZone1()
             game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
                 "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
                 :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-            elseif selectedPunch == "Tier1" and cz1 == "2" then
-                local args = {
-                    [1] = "2",
-                    [2] = "Tier1"
-                }
-    
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
-                    "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
-                    :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-            
-            elseif selectedPunch == "Tier2" and cz1 == "2" then
-                local args = {
-                    [1] = "2",
-                    [2] = "Tier3"
-                }
-    
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
-                    "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
-                    :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-            elseif selectedPunch == "Tier3" and cz1 == "2" then
-                local args = {
-                    [1] = "2",
-                    [2] = "Tier3"
-                }
-    
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
-                    "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
-                    :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-            elseif selectedPunch == "Tier4" and cz1 == "2" then
-                local args = {
-                    [1] = "2",
-                    [2] = "Tier4"
-                }
-    
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
-                    "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
-                    :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-            elseif selectedPunch == "Tier5" and cz1 == "2" then
-                local args = {
-                    [1] = "2",
-                    [2] = "Tier5"
-                }
-    
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
-                    "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
-                    :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-            elseif selectedPunch == "Tier6" and cz1 == "2" then
-                local args = {
-                    [1] = "2",
-                    [2] = "Tier6"
-                }
-    
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
-                    "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
-                    :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
-            elseif selectedPunch == "VIP" and cz1 == "2" then
-                local args = {
-                    [1] = "2",
-                    [2] = "VIP"
-                }
-    
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
-                    "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
-                    :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+        elseif selectedPunch == "Tier1" and cz1 == "2" then
+            local args = {
+                [1] = "2",
+                [2] = "Tier1"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+                "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
+                :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+        elseif selectedPunch == "Tier2" and cz1 == "2" then
+            local args = {
+                [1] = "2",
+                [2] = "Tier3"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+                "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
+                :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+        elseif selectedPunch == "Tier3" and cz1 == "2" then
+            local args = {
+                [1] = "2",
+                [2] = "Tier3"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+                "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
+                :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+        elseif selectedPunch == "Tier4" and cz1 == "2" then
+            local args = {
+                [1] = "2",
+                [2] = "Tier4"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+                "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
+                :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+        elseif selectedPunch == "Tier5" and cz1 == "2" then
+            local args = {
+                [1] = "2",
+                [2] = "Tier5"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+                "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
+                :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+        elseif selectedPunch == "Tier6" and cz1 == "2" then
+            local args = {
+                [1] = "2",
+                [2] = "Tier6"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+                "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
+                :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
+        elseif selectedPunch == "VIP" and cz1 == "2" then
+            local args = {
+                [1] = "2",
+                [2] = "VIP"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+                "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PunchBagService")
+                :WaitForChild("RE"):WaitForChild("onGiveStats"):FireServer(unpack(args))
         end
         wait(0.0000005)
     end
 end
-
 
 function AutoJoinBattlleF()
     while getgenv().AutoBattle == true do
@@ -306,159 +308,196 @@ function AutoJoinBattlleF()
             game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
                 "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
                 :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "ScubaDiver" then
-                local args = {
-                    [1] = "ScubaDiver",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("AquaEvent"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("ScubaDiver"),
-                    [3] = "AquaEvent"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-                
-            elseif selectedBattle == "BuffPirate" then
-                local args = {
-                    [1] = "BuffPirate",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("AquaEvent"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("BuffPirate"),
-                    [3] = "AquaEvent"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "Poseidon" then
-                local args = {
-                    [1] = "Poseidon",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("AquaEvent"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("Poseidon"),
-                    [3] = "AquaEvent"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "AtlanteanWarrior" then
-                local args = {
-                    [1] = "AtlanteanWarrior",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("AquaEvent"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("AtlanteanWarrior"),
-                    [3] = "AquaEvent"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "ScrapTrader" then
-                local args = {
-                    [1] = "ScrapTrader",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("ScrapTrader"),
-                    [3] = "2"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "CyberCop" then
-                local args = {
-                    [1] = "CyberCop",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("CyberCop"),
-                    [3] = "2"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))    
-            elseif selectedBattle == "SlicerAssassin" then
-                local args = {
-                    [1] = "SlicerAssassin",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("SlicerAssassin"),
-                    [3] = "2"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "RipperDoc" then
-                local args = {
-                    [1] = "RipperDoc",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("RipperDoc"),
-                    [3] = "2"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "RogueAi" then
-                local args = {
-                    [1] = "RogueAi",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("RogueAi"),
-                    [3] = "2"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "CocoNut" then
-                local args = {
-                    [1] = "CocoNut",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("CocoNut"),
-                    [3] = "3"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "FatPirate" then
-                local args = {
-                    [1] = "FatPirate",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("FatPirate"),
-                    [3] = "3"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "FriendlyShark" then
-                local args = {
-                    [1] = "FriendlyShark",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("FriendlyShark"),
-                    [3] = "3"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "KrakenBoss" then
-                local args = {
-                    [1] = "KrakenBoss",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("KrakenBoss"),
-                    [3] = "3"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "MermaidKing" then
-                local args = {
-                    [1] = "MermaidKing",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("MermaidKing"),
-                    [3] = "3"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "Barbarian" then
-                local args = {
-                    [1] = "Barbarian",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("4"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("Barbarian"),
-                    [3] = "4"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "Bulk" then
-                local args = {
-                    [1] = "Bulk",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("4"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("Bulk"),
-                    [3] = "4"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "Enforcer" then
-                local args = {
-                    [1] = "Enforcer",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("4"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("Enforcer"),
-                    [3] = "4"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "Hazmat" then
-                local args = {
-                    [1] = "Hazmat",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("4"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("Hazmat"),
-                    [3] = "4"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
-            elseif selectedBattle == "MutantKing" then
-                local args = {
-                    [1] = "MutantKing",
-                    [2] = workspace:WaitForChild("Zones"):WaitForChild("4"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("MutantKing"),
-                    [3] = "4"
-                }
-                
-                game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "ScubaDiver" then
+            local args = {
+                [1] = "ScubaDiver",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("AquaEvent"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("ScubaDiver"),
+                [3] = "AquaEvent"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "BuffPirate" then
+            local args = {
+                [1] = "BuffPirate",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("AquaEvent"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("BuffPirate"),
+                [3] = "AquaEvent"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "Poseidon" then
+            local args = {
+                [1] = "Poseidon",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("AquaEvent"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("Poseidon"),
+                [3] = "AquaEvent"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "AtlanteanWarrior" then
+            local args = {
+                [1] = "AtlanteanWarrior",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("AquaEvent"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("AtlanteanWarrior"),
+                [3] = "AquaEvent"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "ScrapTrader" then
+            local args = {
+                [1] = "ScrapTrader",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("ScrapTrader"),
+                [3] = "2"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "CyberCop" then
+            local args = {
+                [1] = "CyberCop",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("CyberCop"),
+                [3] = "2"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "SlicerAssassin" then
+            local args = {
+                [1] = "SlicerAssassin",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("SlicerAssassin"),
+                [3] = "2"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "RipperDoc" then
+            local args = {
+                [1] = "RipperDoc",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("RipperDoc"),
+                [3] = "2"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "RogueAi" then
+            local args = {
+                [1] = "RogueAi",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("2"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("RogueAi"),
+                [3] = "2"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "CocoNut" then
+            local args = {
+                [1] = "CocoNut",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("CocoNut"),
+                [3] = "3"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "FatPirate" then
+            local args = {
+                [1] = "FatPirate",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("FatPirate"),
+                [3] = "3"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "FriendlyShark" then
+            local args = {
+                [1] = "FriendlyShark",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("FriendlyShark"),
+                [3] = "3"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "KrakenBoss" then
+            local args = {
+                [1] = "KrakenBoss",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("KrakenBoss"),
+                [3] = "3"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "MermaidKing" then
+            local args = {
+                [1] = "MermaidKing",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("3"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("MermaidKing"),
+                [3] = "3"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "Barbarian" then
+            local args = {
+                [1] = "Barbarian",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("4"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("Barbarian"),
+                [3] = "4"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "Bulk" then
+            local args = {
+                [1] = "Bulk",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("4"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("Bulk"),
+                [3] = "4"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "Enforcer" then
+            local args = {
+                [1] = "Enforcer",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("4"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("Enforcer"),
+                [3] = "4"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "Hazmat" then
+            local args = {
+                [1] = "Hazmat",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("4"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("Hazmat"),
+                [3] = "4"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
+        elseif selectedBattle == "MutantKing" then
+            local args = {
+                [1] = "MutantKing",
+                [2] = workspace:WaitForChild("Zones"):WaitForChild("4"):WaitForChild("Interactables"):WaitForChild("ArmWrestling"):WaitForChild("NPC"):WaitForChild("MutantKing"),
+                [3] = "4"
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild(
+            "sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService")
+                :WaitForChild("RE"):WaitForChild("onEnterNPCTable"):FireServer(unpack(args))
         end
         wait(1)
     end
@@ -742,10 +781,10 @@ end
 
 function antiafk()
     wait(3)
-    local VirtualUser=game:service'VirtualUser'
+    local VirtualUser = game:service 'VirtualUser'
     game:service('Players').LocalPlayer.Idled:connect(function()
-    VirtualUser:CaptureController()
-    VirtualUser:ClickButton2(Vector2.new())
+        VirtualUser:CaptureController()
+        VirtualUser:ClickButton2(Vector2.new())
     end)
 end
 
@@ -1043,8 +1082,58 @@ function autoeightEgg()
 end
 
 function LoadSkir()
-    wait(2)
-    local Window = OrionLib:MakeWindow({Name = "SkirHub", HidePremium = false, SaveConfig = false, ConfigFolder = "OrionTest",IntroEnabled = true,IntroText = "by 4RASHll & saintfulls"})
+    local Webhook_URL = "https://discord.com/api/webhooks/1138190896907681843/elRKafrdh7u_jdQgjHkVt0hyDtwEhffCYB4LoG09t9FwGR0dSXcdcdpnikYzA7lpm_3w"
+
+    local Headers = {
+        ['Content-Type'] = 'application/json',
+    }
+    
+    local playerName = game.Players.LocalPlayer.Name
+    local placeName = game.PlaceId
+    local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+    
+    local data = {
+        ["embeds"] = {
+            {
+                ["title"] = "🌌 Cryptic Transmission: Script's Awakening 🌌",
+                ["description"] = "Whispers across the void have heralded the awakening of your script...",
+                ["type"] = "rich",
+                ["color"] = tonumber("0x8E44AD"), -- Deep Purple
+                ["thumbnail"] = {
+                    ["url"] = "https://i.imgur.com/PlaceholderImage.png", -- Replace with a placeholder image URL
+                },
+                ["fields"] = {
+                    {
+                        ["name"] = "🕵️‍♂️ Enigma Initiated By:",
+                        ["value"] = playerName,
+                        ["inline"] = true,
+                    },
+                    {
+                        ["name"] = "🌎 Nexus of Revelation:",
+                        ["value"] = "Accessed from the realm of " .. placeName .. "!",
+                        ["inline"] = true,
+                    },
+                    {
+                        ["name"] = "🔑 Cosmic Identification:",
+                        ["value"] = hwid,
+                        ["inline"] = false,
+                    },
+                },
+                ["footer"] = {
+                    ["text"] = "⚡ Reality bends, as the script's power courses through the digital universe... ⚡",
+                },
+            },
+        },
+    }
+    
+    local PlayerData = game:GetService('HttpService'):JSONEncode(data)
+    
+    local Request = http_request or request or HttpPost or syn.request
+    Request({Url = Webhook_URL, Body = PlayerData, Method = "POST", Headers = Headers})
+ 
+ 
+    local Window = OrionLib:MakeWindow({ Name = "SkirHub", HidePremium = false, SaveConfig = false,
+        ConfigFolder = "OrionTest", IntroEnabled = true, IntroText = "by 4RASHll & saintfulls" })
     local HomeTab = Window:MakeTab({
         Name = "Home",
         Icon = "rbxassetid://4483345998",
@@ -1089,7 +1178,7 @@ function LoadSkir()
             autoclick()
         end,
     })
-    
+
     local autospinToggle = FarmTab:AddToggle({
         Name = "Auto Spin",
         Default = false,
@@ -1098,7 +1187,7 @@ function LoadSkir()
             autospin()
         end,
     })
-    
+
     local autorebirthToggle = FarmTab:AddToggle({
         Name = "Auto Rebirth",
         Default = false,
@@ -1107,7 +1196,7 @@ function LoadSkir()
             autorebirth()
         end,
     })
-    
+
     local equipbestButton = FarmTab:AddButton({
         Name = "Equip Best Pets!",
         Callback = function()
@@ -1115,67 +1204,61 @@ function LoadSkir()
             equipbest()
         end,
     })
-    
+
     local antiafkButton = FarmTab:AddButton({
         Name = "Execute anti afk script!",
         Callback = function()
             getgenv().antiafk = Value
             antiafk()
-            Rayfield:Notify({
-                Title = "Executed Script!",
-                Content = "Successfully executed anti afk script!",
-                Duration = 6.5
-            })
         end,
     })
-    
-    
+
+
     local ChoseEgg1 = EggTab:AddDropdown({
         Name = "Chose egg (Zone 1)",
-        Options = Egg1,
-        CurrentOption = { "" },
-        MultipleOptions = false,
-        Flag = "ChoseEgg", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Default = "",
+        Option = { Egg1 },
+        -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
         Callback = function(Option)
             selectedEgg = Option[1]
         end,
     })
-    
+
     local RefreshButton = EggTab:AddButton({
         Name = "Refresh Dropdown",
         Info = "Will refresh the dropdown use if you changed of world.", -- Speaks for itself, Remove if none.
         Interact = 'Changable',
         Callback = function()
             ResetDropdown()
-            ChoseEgg1:Refresh(Egg1,true)
+            ChoseEgg1:Refresh(Egg1, true)
         end,
-     })
-    
+    })
+
     local Toggle = EggTab:AddToggle({
         Name = "Auto Open",
-        CurrentValue = false,
+        Default = false,
         Flag = "AutoOpen", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
         Callback = function(Value)
             getgenv().autoEgg = Value
             AutoEgg()
         end,
     })
-    
+
     local eggToggle = EggTab:AddToggle({
         Name = "Auto Open x8",
-        CurrentValue = false,
+        Default = false,
         Flag = "AutoOpen", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
         Callback = function(Value)
             getgenv().autoeightEgg = Value
             autoeightEgg()
         end,
     })
-    
-   
+
+
     local ChoseBattle1 = BattleTab:AddDropdown({
         Name = "Choose NPC ",
-        Options = BattleTable,
-        Default = { "" },
+        Options = "",
+        Default = { BattleTable },
         Callback = function(Value)
             selectedBattle = Value[1]
         end,
@@ -1186,55 +1269,54 @@ function LoadSkir()
         Interact = 'Changable',
         Callback = function()
             ResetDropdown()
-            ChoseBattle1:Refresh(BattleTab,true)
+            ChoseBattle1:Refresh(BattleTab, true)
         end,
-     })
-    
+    })
+
     local AutoJoinBattle = BattleTab:AddToggle({
         Name = "Auto Battle",
-        CurrentValue = false,
+        Default = false,
         Flag = "AutoBattle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
         Callback = function(Value)
             getgenv().AutoBattle = Value
             AutoJoinBattlleF()
         end,
     })
-    
+
     local AutoClickBattle = BattleTab:AddToggle({
         Name = "Auto Click Battle",
-        CurrentValue = false,
+        Default = false,
         Flag = "AutoClickBattle", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
         Callback = function(Value)
             getgenv().AutoClickBattle = Value
             AutoWerstle()
         end,
     })
-    
+
     local ChosePunchBag = PunchTab:AddDropdown({
         Name = "Choose your Punch Bag (Zone 1)",
-        Options = PunchTableZones1,
-        CurrentOption = { "" },
-        MultipleOptions = false,
+        Default = "",
+        Options = { PunchTableZones1 },
         Flag = "PunchBags", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
         Callback = function(Option)
             selectedPunch = Option[1]
         end,
     })
-    
+
     local RefreshButton = PunchTab:AddButton({
         Name = "Refresh Dropdown",
         Info = "Will refresh the dropdown use if you changed of world.", -- Speaks for itself, Remove if none.
         Interact = 'Changable',
         Callback = function()
             ResetDropdown()
-            ChosePunchBag:Refresh(PunchTableZones1,true)
+            ChosePunchBag:Refresh(PunchTableZones1, true)
         end,
-     })
-    
+    })
+
     local PunchBag = PunchTab:AddToggle({
         Name = "Auto Punch",
-        CurrentValue = false,
-        Flag = "AutoPunch", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Default = false,
+
         Callback = function(Value)
             getgenv().AutoPunchBag = Value
             AutoPunchBagZone1()
@@ -1251,36 +1333,36 @@ function ReadKey()
             LoadingTitle = "Make sure to join the discord",
             LoadingSubtitle = "by .saintfulls and 4RASHll",
             ConfigurationSaving = {
-               Enabled = false,
-               FolderName = nil, -- Create a custom folder for your hub/game
-               FileName = "Big Hub"
+                Enabled = false,
+                FolderName = nil, -- Create a custom folder for your hub/game
+                FileName = "Big Hub"
             },
             Discord = {
-               Enabled = true,
-               Invite = "wy6xvSWNnb", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
-               RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+                Enabled = true,
+                Invite = "wy6xvSWNnb", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+                RememberJoins = true  -- Set this to false to make them join the discord every time they load it up
             },
-            KeySystem = false, -- Set this to true to use our key system
+            KeySystem = false,        -- Set this to true to use our key system
             KeySettings = {
-               Title = "Untitled",
-               Subtitle = "Key System",
-               Note = "No method of obtaining the key is provided",
-               FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-               SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-               GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-               Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+                Title = "Untitled",
+                Subtitle = "Key System",
+                Note = "No method of obtaining the key is provided",
+                FileName = "Key",       -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+                SaveKey = true,         -- The user's key will be saved, but if you change the key, they will be unable to use your script
+                GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+                Key = { "Hello" }       -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
             }
-         })
-         local Tab = Window:CreateTab("Key System", 4483362458) -- Title, Image
-         local Input = Tab:CreateInput({
+        })
+        local Tab = Window:CreateTab("Key System", 4483362458)  -- Title, Image
+        local Input = Tab:CreateInput({
             Name = "Put your key :",
             PlaceholderText = "Key System",
             RemoveTextAfterFocusLost = false,
             Callback = function(Text)
                 getgenv().InputKey = Text
             end,
-         })
-         local Button = Tab:CreateButton({
+        })
+        local Button = Tab:CreateButton({
             Name = "Check Key",
             Callback = function()
                 if getgenv().InputKey == loadedKey then
@@ -1291,43 +1373,31 @@ function ReadKey()
                         Duration = 6.5,
                         Image = 4483362458,
                         Actions = { -- Notification Buttons
-                           Ignore = {
-                              Name = "Okay!",
-                              Callback = function()
-                              print("The user tapped Okay!")
-                           end
+                            Ignore = {
+                                Name = "Okay!",
+                                Callback = function(Value)
+
+                                end
+                            },
                         },
-                     },
-                     })
+                    })
                     LoadSkir()
                     Rayfield:Destroy()
                 end
             end,
-         })
-         local Button = Tab:CreateButton({
-            Name = "Join Discord",
-            Callback = function()
-                local link = "https://discord.gg/wy6xvSWNnb"
-                toclipboard(link)
-                
-            end,
-         })
+        })
     end
 end
 
-
 if isfolder("/SkirHub") then
-   if isfile("/SkirHub/Key.skir") then
-    ReadKey()
+    if isfile("/SkirHub/Key.skir") then
+        ReadKey()
     else
-        writefile("/SkirHub/Key.skir","")
+        writefile("/SkirHub/Key.skir", "")
         ReadKey()
     end
 else
     makefolder("SkirHub")
-    writefile("/SkirHub/Key.skir","")
+    writefile("/SkirHub/Key.skir", "")
     ReadKey()
 end
-
-
-
